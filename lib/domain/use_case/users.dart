@@ -6,9 +6,16 @@ import '../repositories/user_repository.dart';
 
 class Users {
 
-  Future<void> addUser() async => 
-  Future<List<RandomUser>> getAllUsers() async =>
-  Future<void> deleteUser(id) async => 
-  Future<void> deleteAll() async =>  
-  Future<void> updateUser(user) async => 
+  UserRepository userRepo = Get.find();
+
+  Future<void> addUser() async => userRepo.getUser();
+
+  Future<List<RandomUser>> getAllUsers() async => userRepo.getAllUsers();
+
+  Future<void> deleteUser(id) async => userRepo.deleteUser(id);
+  
+  Future<void> deleteAll() async =>  userRepo.deleteAll();
+
+  Future<void> updateUser(user) async => userRepo.updateUser(user);
+
 }
